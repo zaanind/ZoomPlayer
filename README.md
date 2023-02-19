@@ -25,6 +25,6 @@ https://github.com/zaanind/ZoomPlayer/releases/download/v1.0.0/installer.exe
 
 
 **It's important to note that to avoid any errors or issues with playing your encrypted subtitles, you must have VLC media player installed on your 
-computer. ZoomPlayer relies on VLC's codecs to ensure a seamless and bug-free subtitle viewing experience, so please make sure to install VLC before using our software.**
+computer. ZoomPlayer relies on VLC's codecs to ensure a seamless and bug-free subtitle viewing experience, so please make sure to install VLC before using our software.(https://github.com/zaanind/ZoomPlayer/issues/1)**
 
 **It's important to note that when you first install the software and open it for the first time, it may take a few moments to take effect. This is normal and expected, so please be patient while the software initializes.**
