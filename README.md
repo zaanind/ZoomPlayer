@@ -11,4 +11,4 @@ For subtitle creators, The Zoom Player is the perfect platform for sharing your 
 
 
 
-But that's not all - The Bridge of Truth is also dedicated to ending the rampant piracy that plagues the entertainment industry. By providing a legal, secure, and respectful platform for subtitling, we're doing our part to protect the hard work of creators and producers, and ensure that they're fairly compensated for their efforts.
+we're doing our part to protect the hard work of creators!
