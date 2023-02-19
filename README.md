@@ -14,7 +14,7 @@ For subtitle creators, The Zoom Player is the perfect platform for sharing your 
 we're doing our part to protect the hard work of creators!
 
 
-# Windows Installer
+# Windows Installer (Error! We Found Bug,So We Removed The Release Temporary)
 
 
 Download From Here - https://github.com/zaanind/ZoomPlayer/releases/tag/v1.0.0
