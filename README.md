@@ -27,3 +27,11 @@ https://github.com/zaanind/ZoomPlayer/releases/download/v1.0.0/installer.exe
 
 
 **It's important to note that when you first install the software and open it for the first time, it may take a few moments to take effect. This is normal and expected, so please be patient while the software initializes.**
+
+# Useful Shourcuts
+ * Left/right - Seek +5sec
+ * Up/down - Volume (scroll and arrows)
+ * F - Full screen
+ * Space - Play/Pause
+
+
