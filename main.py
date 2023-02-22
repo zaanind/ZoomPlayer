@@ -25,21 +25,6 @@ from cryptography.fernet import Fernet
 from PyQt5.QtGui import QCursor, QGuiApplication
 
 
-############################# START VLC ####################
-class InitializeVLCThread(QThread):
-
-
-
-    vlc_initialized = pyqtSignal(vlc.Instance, vlc.MediaPlayer)
-    
-    def run(self):
-        instance = vlc.Instance()
-        player = instance.media_player_new()
-        self.vlc_initialized.emit(instance, player)
-
-    pass
-
-
 
 
 ################################### SET GUI ##########################
@@ -79,29 +64,6 @@ class zmplayer(QtWidgets.QMainWindow):
 
     
         
-
-        
-
-     # Create the loading spinner and add it to the window
-        self.spinner = QLabel(self)
-        self.movie = QMovie("loading.gif")
-        self.spinner.setMovie(self.movie)
-        self.spinner.setGeometry(QtCore.QRect(320, 240, 80, 80))
-        self.movie.start()
-
-        # Initialize the vlc instance in a separate thread
-        self.vlc_thread = InitializeVLCThread()
-        self.vlc_thread.vlc_initialized.connect(self.on_vlc_initialized)
-        self.vlc_thread.start()
-
-    def on_vlc_initialized(self, instance, player):
-        self.instance = instance
-        self.player = player
-        self.spinner.hide()
-    
-    
-    
-
 
         
 
@@ -152,16 +114,7 @@ class zmplayer(QtWidgets.QMainWindow):
         self.volumeslider.setGeometry(QtCore.QRect(630, 540, 100, 30))
         self.volumeslider.show()
          
-        
-        # Define key and mouse input events
-        #self.event_manager = self.player.event_manager()
-        #self.event_manager.event_attach(vlc.EventType.KeyReleased, self.on_key_press)
-
-
-        #self.subtitle_timer = qtc.QTimer(self)
-        #self.subtitle_timer.setInterval(100)
-        #self.subtitle_timer.timeout.connect(self.update_subtitle_layer)
-        
+    
 
      
         
@@ -261,23 +214,7 @@ class zmplayer(QtWidgets.QMainWindow):
         self.shortcut = QShortcut(QKeySequence("down"), self)
         self.shortcut.activated.connect(self.volume_down)
 
-       # self.shortcut = QShortcut(QKeySequence(Qt.Key_Right), self)
-       # self.shortcut.activated.connect(self.forwardSlider)
-       # self.shortcut = QShortcut(QKeySequence(Qt.Key_Left), self)
-       # self.shortcut.activated.connect(self.backSlider)
-       # self.shortcut = QShortcut(QKeySequence(Qt.Key_Up), self)
-       # self.shortcut.activated.connect(self.volumeUp)
-       # self.shortcut = QShortcut(QKeySequence(Qt.Key_Down), self)
-       # self.shortcut.activated.connect(self.volumeDown)    
-       # self.shortcut = QShortcut(QKeySequence(Qt.ShiftModifier +  Qt.Key_Right) , self)
-       # self.shortcut.activated.connect(self.forwardSlider10)
-       # self.shortcut = QShortcut(QKeySequence(Qt.ShiftModifier +  Qt.Key_Left) , self)
-       # self.shortcut.activated.connect(self.backSlider10)
-
-      
-
-
-        # Show the window
+     
         self.show()
 
    
@@ -345,17 +282,7 @@ class zmplayer(QtWidgets.QMainWindow):
                 with open(file_name, 'rb') as f:
                     encrypted_data = f.read()
 
-                fernet = Fernet(self.tjsdr)
-                
-                
-
-       
-                
-                
-         
-                 
-                
-                decrypted_data = fernet.decrypt(encrypted_data)
+       decrypted_data = fernet.decrypt(encrypted_data)
                 
 
 
@@ -445,14 +372,6 @@ class zmplayer(QtWidgets.QMainWindow):
     
     
 
-        def setPosition(self, position):
-        self.player.set_position(position / 100000.0)
-           # setting the position to where the slider was dragged
-      # the vlc MediaPlayer needs a float value between 0 and 1, Qt
-      # uses integer variables, so you need a factor; the higher the
-      # factor, the more precise are the results
-      # (1000 should be enough)
-    pass
 
     
     def on_video_opened(self):
@@ -487,131 +406,6 @@ class zmplayer(QtWidgets.QMainWindow):
 
     
     
-
-
-
-  def fullvid(self):
-        if self.isFullScreen():
-            self.vlc_widget.setGeometry(17, 30, 780, 500)
-            
-            
-            # If already in full screen, exit full screen and show the toolbars
-            self.showNormal()
-            self.setGeometry(100, 100, 810, 600)
-            self.menuBar().show()
-            self.positionslider.show()
-            self.volumeslider.show()
-            self.playback_time_label.show()
-            self.play_button.show()
-            self.hover_timer.stop()
-            self.full_button.show()
-            self.full_button.setText('Full Screen')
-            
-            self.playback_time_label.setStyleSheet("font-size: 13px; color:#111;")
-
-
-            self.full_button.setGeometry(735, 540, 65, 30)
-    
-            self.play_button.setGeometry(20, 540, 60, 30)
-    
-            self.playback_time_label.setGeometry(QtCore.QRect(400, 540, 360, 20))
-    
-            self.volumeslider.setGeometry(QtCore.QRect(630, 540, 100, 30))
-    
-            self.positionslider.setGeometry(QtCore.QRect(90, 540, 450, 30))
-            
-        else:
-            # Enter full screen and hide the toolbars
-            screen = QDesktopWidget().screenGeometry()
-
-        # Resize the video frame to match the screen
-            self.vlc_widget.setGeometry(screen)
-            self.hide()
-            self.showFullScreen()
-            self.menuBar().hide()
-            self.positionslider.hide()
-            self.volumeslider.hide()
-            self.playback_time_label.hide()
-            self.play_button.hide()
-            self.full_button.setText('Restore')
-            self.hover_timer.start()
-            self.playback_time_label.setStyleSheet("font-size: 13px; color:#fff;")
-            screen_geometry = QGuiApplication.primaryScreen().geometry()
-            hitbottombuttons = screen_geometry.height() - 40
-            widthoptionsbar = screen_geometry.width()
-
-           
-
-            
-        
-      
-
-            self.full_button.setGeometry(widthoptionsbar - 190, hitbottombuttons - 5, 65, 30)
-            self.play_button.setGeometry(widthoptionsbar - 910, hitbottombuttons, 60, 30)
-            self.positionslider.setGeometry(190, hitbottombuttons, 450, 30)
-            self.volumeslider.setGeometry(720, hitbottombuttons - 5 , 100, 30)
-            self.playback_time_label.setGeometry(500, hitbottombuttons, 360, 20)
-            
-
-
-
-        pass
-    
-
-
-  def check_hover(self):
-            # Get the cursor position
-        pos = QCursor.pos()
-
-        # Get the screen geometry
-        screen_geometry = QGuiApplication.primaryScreen().geometry()
-
-        # Check if the cursor is at the bottom of the screen
-        if pos.y() >= screen_geometry.height() - 100: # 50 is the height of the button widget
-            # Show the buttons
-            self.positionslider.show()
-            self.volumeslider.show()
-            self.playback_time_label.show()
-            self.play_button.show()
-            self.full_button.show()
-            
-
-
-        else:
-            # Hide the buttons
-            self.positionslider.hide()
-           
-            self.volumeslider.hide()
-            self.playback_time_label.hide()
-            self.play_button.hide()
-            self.full_button.hide()
-    pass
-  
-  def move_video_left(self):
-        self.player.set_time(self.player.get_time() - 5000)
-    pass
-
-     def move_video_right(self):
-        self.player.set_time(self.player.get_time() + 5000)
-  pass
-
-
-  def volume_up(self):
-        volume = self.player.audio_get_volume()
-        if volume < 100:
-            volume += 5
-            self.player.audio_set_volume(volume)
-            self.volumeslider.setValue(volume)
-    pass
-
-      def volume_down(self):
-        volume = self.player.audio_get_volume()
-        if volume > 0:
-            volume -= 5
-            self.player.audio_set_volume(volume)
-            self.volumeslider.setValue(volume)
-   pass
-
 
   def show_help_dialog(self):
         dialog = QtWidgets.QMessageBox(self)
@@ -671,10 +465,6 @@ class EncryptDialog(QDialog):
 
         self.browseout_button = QPushButton("Browse")
         self.browseout_button.clicked.connect(self.browse_file_out)
-
-
-        #self.key_label = QLabel("Encryption Key:")
-        #self.key_edit = QtWidgets.QLineEdit()
 
 
 
@@ -745,8 +535,8 @@ class EncryptDialog(QDialog):
 
        
         if save_filename:
-            with open(save_filename, "wb") as f:
-                f.write(encrypted_data)
+            f.write(encrypted_data)
+              to (save_filename)
                 QtWidgets.QMessageBox.information(self, "Encryption Complete", "File has been encrypted and saved successfully.")
 
     
@@ -766,18 +556,6 @@ class AudioSelectionDialog(QtWidgets.QDialog):
 
 
 
-        for track_id, track_description in audio_tracks:
-            item = QtWidgets.QListWidgetItem(track_description.decode('utf-8'), self.list_widget)
-            item.setData(QtCore.Qt.UserRole, track_id)
-    
-
-    def get_selected_audio_track(self):
-        item = self.list_widget.currentItem()
-        if item:
-            return item.data(QtCore.Qt.UserRole)
-        return None
-    pass
-
 
 
 
@@ -786,10 +564,5 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     player = zmplayer()
 
-
-
-
-    sys.exit(app.exec_())
-    
 
 
