@@ -1,0 +1,39 @@
+using System;
+using System.Runtime.InteropServices;
+
+public static class SubtitleRenderer
+{
+    [DllImport("libass.dll", EntryPoint="ass_renderer_new")]
+    public static extern IntPtr ass_renderer_new(IntPtr library);
+
+    [DllImport("libass.dll", EntryPoint="ass_renderer_set_frame_size")]
+    public static extern void ass_renderer_set_frame_size(IntPtr renderer, int w, int h);
+
+    [DllImport("libass.dll", EntryPoint="ass_renderer_set_fonts")]
+    public static extern void ass_renderer_set_fonts(IntPtr renderer, string fonts_dir, string default_font, string default_family, int fc, string[] font_names);
+
+    [DllImport("libass.dll", EntryPoint="ass_renderer_render_frame")]
+    public static extern int ass_renderer_render_frame(IntPtr renderer, IntPtr track, IntPtr frame, int now, int detect_change);
+
+    [DllImport("libass.dll", EntryPoint="ass_frame_new")]
+    public static extern IntPtr ass_frame_new(IntPtr track);
+}
+
+
+public static class SubtitleRendererso
+{
+    [DllImport("libass.so", EntryPoint="ass_renderer_new")]
+    public static extern IntPtr ass_renderer_new(IntPtr library);
+
+    [DllImport("libass.so", EntryPoint="ass_renderer_set_frame_size")]
+    public static extern void ass_renderer_set_frame_size(IntPtr renderer, int w, int h);
+
+    [DllImport("libass.so", EntryPoint="ass_renderer_set_fonts")]
+    public static extern void ass_renderer_set_fonts(IntPtr renderer, string fonts_dir, string default_font, string default_family, int fc, string[] font_names);
+
+    [DllImport("libass.so", EntryPoint="ass_renderer_render_frame")]
+    public static extern int ass_renderer_render_frame(IntPtr renderer, IntPtr track, IntPtr frame, int now, int detect_change);
+
+    [DllImport("libass.so", EntryPoint="ass_frame_new")]
+    public static extern IntPtr ass_frame_new(IntPtr track);
+}
