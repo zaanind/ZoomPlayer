@@ -24,8 +24,8 @@ https://github.com/zaanind/ZoomPlayer/releases/download/v1.0.0/installer.exe
 
 
  # If You are facing any issue about this softwere, please contact us 
-  * messenger - m.me/zaanind
-  * facebook - fb.com/zaanind
+  * messenger - https://m.me/zaanind
+  * facebook - https://fb.com/zaanind
   * mail - zaanind@gmail.com
   * Github Discussions - https://github.com/zaanind/ZoomPlayer/discussions
   * Or Open issue - https://github.com/zaanind/ZoomPlayer/issues
