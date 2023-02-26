@@ -16,7 +16,7 @@ from PyQt5 import QtGui as qtg
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 from datetime import timedelta
-from cryptography.fernet import Fernet
+from ctypes import cryptography
 
 
 
@@ -113,6 +113,7 @@ class zmplayer(QtWidgets.QMainWindow):
         self.volumeslider.sliderMoved.connect(self.setVolume)
         self.volumeslider.setGeometry(QtCore.QRect(630, 540, 100, 30))
         self.volumeslider.show()
+        self.key = Fernet.generate_key()
          
     
 
