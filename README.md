@@ -24,7 +24,8 @@ https://github.com/zaanind/ZoomPlayer/releases/download/v1.0.0/installer.exe
 
 
 or
- [![Download ZoomPlayer](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/zoomplayer/files/latest/download)
+
+[![Download ZoomPlayer](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/zoomplayer/files/latest/download)
  
 
 [![Download ZoomPlayer](https://img.shields.io/sourceforge/dt/zoomplayer.svg)](https://sourceforge.net/projects/zoomplayer/files/latest/download)
