@@ -23,6 +23,13 @@ or
 https://github.com/zaanind/ZoomPlayer/releases/download/v1.0.0/installer.exe
 
 
+or
+ [![Download ZoomPlayer](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/zoomplayer/files/latest/download)
+ 
+
+[![Download ZoomPlayer](https://img.shields.io/sourceforge/dt/zoomplayer.svg)](https://sourceforge.net/projects/zoomplayer/files/latest/download)
+
+
  # If You are facing any issue about this softwere, please contact us 
   * messenger - https://m.me/zaanind
   * facebook - https://fb.com/zaanind
