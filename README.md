@@ -21,10 +21,10 @@ we're doing our part to protect the hard work of creators!
 # Windows Installer 
 
 
-Download From Here - https://github.com/zaanind/ZoomPlayer/releases/tag/v1.0.0
+Download From Here - https://github.com/zaanind/ZoomPlayer/releases/tag/v2.0
 
 or
-https://github.com/zaanind/ZoomPlayer/releases/download/v1.0.0/installer.exe
+https://github.com/zaanind/ZoomPlayer/releases/download/v2.0/installer.exe
 
 
 or
