@@ -1,4 +1,5 @@
-# Introducing ZoomPlayer, the Ultimate Subtitles Encryption Software
+# Introducing ZoomPlaye
+## the Ultimate Subtitles Encryption Software
 
 Protect Your Subtitles with Our Powerful Playback Encrypted Sub and Encrypt Sub Functions, and Enjoy Bug-Free Subtitles!
 We are excited to announce the launch of ZoomPlayer, a powerful subtitles encryption software that not only ensures top-level protection for your hard work but also offers a bug-free subtitle viewing experience. With our advanced features, subtitle creators can trust that their subtitle data is completely secure.
