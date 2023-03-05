@@ -1,4 +1,4 @@
-# Introducing ZoomPlayer
+# ZoomPlayer
 ## The Ultimate Subtitles Encryption Software
 
 Protect Your Subtitles with Our Powerful Playback Encrypted Sub and Encrypt Sub Functions, and Enjoy Bug-Free Subtitles!
