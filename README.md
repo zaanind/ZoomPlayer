@@ -55,4 +55,4 @@ or
  * Space - Play/Pause
 
 # Devekoper's Website 
- *Visit - https://zaanind.fanclub.rocks/
+ * Visit - https://zaanind.fanclub.rocks/
