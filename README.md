@@ -54,5 +54,5 @@ or
  * F - Full screen
  * Space - Play/Pause
 
-# Devekoper's Website 
+# Developer's Website 
  * Visit - https://zaanind.fanclub.rocks/
